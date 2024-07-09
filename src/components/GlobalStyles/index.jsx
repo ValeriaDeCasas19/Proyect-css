@@ -146,4 +146,4 @@ html {
     display: none;
   }`
 
-  export default GlobalStyles
+  export default GlobalStyles 
