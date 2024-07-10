@@ -4,6 +4,9 @@ import Cabecera from "./components/Cabecera"
 import BarraLateral from "./components/BarraLateral"
 import Banner  from "./components/Banner"
 import banner from "./assets/banner.png"
+import Galeria from "./components/Galeria"
+import fotos from "./fotos.json"
+import {useState} from "react"
 
 
 const FondoGradiente = styled.div`
@@ -16,19 +19,35 @@ width: 1280px;
 max-width: 100%;
 margin: 0 auto;
 `
+const MainContainer = styled.main `
+display: flex;
+gap: 24px;
+`
 
-function App() {
+const ContenidoGaleria = styled.section `
+display: flex;
+flex-direction: column;
+flex-grow: 1;
+`
+
+const App = () => {
+  const [fotosDeGaleria, setFotosDeGaleria] = useState(fotos)
   
 
   return (
     <>
     <FondoGradiente>
       <GlobalStyles/>
-      <Cabecera/>
       <AppContainer>
-      <BarraLateral/>
+      <Cabecera/>
+      <MainContainer>
+        <BarraLateral/>
+      <ContenidoGaleria>
       <Banner texto ="La galeria mas completa de fotos del espacio"
       backgroundImage={banner}/>
+       <Galeria fotos={fotosDeGaleria}/>
+       </ContenidoGaleria>
+        </MainContainer>
       </AppContainer>
     </FondoGradiente>
     </>
